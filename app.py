@@ -1,0 +1,37 @@
+from flask import Flask, render_template, request
+import requests
+
+def get_rate(currency, api_key):
+    api_url = "https://v6.exchangerate-api.com/v6/{}/latest/{}".format(api_key, currency)
+    r = requests.get(api_url)
+    return r.json()
+
+api_key = "06b3e9f1f004ea18d05014c0"
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return render_template('homepage.html')
+
+exchangecurr = ""
+
+@app.route('/rates', methods = ['POST', 'GET'])
+def rates():
+    if request.method == "POST":
+        exchangecurr = request.form["currency"]
+        data = get_rate(exchangecurr, api_key)
+        return render_template('rates.html',time = data["time_last_update_utc"],curren = request.form["currency"], INR = data["conversion_rates"]["INR"] ,AED = data["conversion_rates"]["AED"] ,AFN = data["conversion_rates"]["AFN"],ALL = data["conversion_rates"]["ALL"],AMD = data["conversion_rates"]["AMD"]  ,ANG = data["conversion_rates"]["ANG"] ,AOA = data["conversion_rates"]["AOA"],ARS = data["conversion_rates"]["ARS"],AUD = data["conversion_rates"]["AUD"] ,AWG = data["conversion_rates"]["AWG"] ,AZN = data["conversion_rates"]["AZN"] ,BAM = data["conversion_rates"]["BAM"] ,BBD = data["conversion_rates"]["BBD"] ,BDT = data["conversion_rates"]["BDT"],BGN = data["conversion_rates"]["BGN"] ,BHD = data["conversion_rates"]["BHD"] ,BIF = data["conversion_rates"]["BIF"] ,BMD = data["conversion_rates"]["BMD"],BND = data["conversion_rates"]["BND"] ,BOB = data["conversion_rates"]["BOB"] ,BRL = data["conversion_rates"]["BRL"] ,BSD = data["conversion_rates"]["BSD"],BTN = data["conversion_rates"]["BTN"]  ,BWP = data["conversion_rates"]["BWP"],BYN = data["conversion_rates"]["BYN"] ,BZD = data["conversion_rates"]["BZD"] ,CAD = data["conversion_rates"]["CAD"] ,CDF = data["conversion_rates"]["CDF"] ,CHF = data["conversion_rates"]["CHF"],CLP = data["conversion_rates"]["CLP"], CNY = data["conversion_rates"]["CNY"],COP = data["conversion_rates"]["COP"] ,CRC = data["conversion_rates"]["CRC"],CUC = data["conversion_rates"]["CUC"],CUP = data["conversion_rates"]["CUP"],CVE = data["conversion_rates"]["CVE"],CZK = data["conversion_rates"]["CZK"],DJF = data["conversion_rates"]["DJF"],DKK = data["conversion_rates"]["DKK"] ,DOP = data["conversion_rates"]["DOP"],DZD = data["conversion_rates"]["DZD"],EGP = data["conversion_rates"]["EGP"],ERN = data["conversion_rates"]["ERN"],ETB = data["conversion_rates"]["ETB"],EUR = data["conversion_rates"]["EUR"] ,FJD = data["conversion_rates"]["FJD"] ,FKP = data["conversion_rates"]["FKP"]  ,FOK = data["conversion_rates"]["FOK"] ,GBP = data["conversion_rates"]["GBP"]  ,GEL = data["conversion_rates"]["GEL"] ,GGP = data["conversion_rates"]["GGP"]  ,GHS = data["conversion_rates"]["GHS"] ,GIP = data["conversion_rates"]["GIP"]  ,GMD = data["conversion_rates"]["GMD"],GNF = data["conversion_rates"]["GNF"]  ,GTQ = data["conversion_rates"]["GTQ"],GYD = data["conversion_rates"]["GYD"], HKD = data["conversion_rates"]["HKD"],HNL = data["conversion_rates"]["HNL"],HRK = data["conversion_rates"]["HRK"] ,HTG = data["conversion_rates"]["HTG"],HUF = data["conversion_rates"]["HUF"],IDR = data["conversion_rates"]["IDR"]  ,ILS = data["conversion_rates"]["ILS"],IMP = data["conversion_rates"]["IMP"]  ,IQD = data["conversion_rates"]["IQD"] ,IRR = data["conversion_rates"]["IRR"]  ,ISK = data["conversion_rates"]["ISK"],JMD = data["conversion_rates"]["JMD"],JOD = data["conversion_rates"]["JOD"]  ,JPY = data["conversion_rates"]["JPY"],KES = data["conversion_rates"]["KES"],KGS = data["conversion_rates"]["KGS"],KHR = data["conversion_rates"]["KHR"],KID = data["conversion_rates"]["KID"] ,KMF = data["conversion_rates"]["KMF"] ,KRW = data["conversion_rates"]["KRW"] ,KWD = data["conversion_rates"]["KWD"]  ,KYD = data["conversion_rates"]["KYD"] ,KZT = data["conversion_rates"]["KZT"],LAK = data["conversion_rates"]["LAK"]  ,LBP = data["conversion_rates"]["LBP"] ,LKR = data["conversion_rates"]["LKR"],LRD = data["conversion_rates"]["LRD"],LSL = data["conversion_rates"]["LSL"],LYD = data["conversion_rates"]["LYD"],MAD = data["conversion_rates"]["MAD"],MDL = data["conversion_rates"]["MDL"],MGA = data["conversion_rates"]["MGA"] ,MKD = data["conversion_rates"]["MKD"],MMK = data["conversion_rates"]["MMK"] ,MNT = data["conversion_rates"]["MNT"] ,MOP = data["conversion_rates"]["MOP"],MRU = data["conversion_rates"]["MRU"],MUR = data["conversion_rates"]["MUR"],MVR = data["conversion_rates"]["MVR"],MWK = data["conversion_rates"]["MWK"] ,MXN = data["conversion_rates"]["MXN"],MYR = data["conversion_rates"]["MYR"] ,MZN = data["conversion_rates"]["MZN"],NAD = data["conversion_rates"]["NAD"],NGN = data["conversion_rates"]["NGN"],NIO = data["conversion_rates"]["NIO"],NOK = data["conversion_rates"]["NOK"],NPR = data["conversion_rates"]["NPR"]  ,NZD = data["conversion_rates"]["NZD"] ,OMR = data["conversion_rates"]["OMR"]  ,PAB = data["conversion_rates"]["PAB"],PEN = data["conversion_rates"]["PEN"] ,PGK = data["conversion_rates"]["PGK"] ,PHP = data["conversion_rates"]["PHP"],PKR = data["conversion_rates"]["PKR"],PLN = data["conversion_rates"]["PLN"] ,PYG = data["conversion_rates"]["PYG"] ,QAR = data["conversion_rates"]["QAR"] ,RON = data["conversion_rates"]["RON"] ,RSD = data["conversion_rates"]["RSD"],RUB = data["conversion_rates"]["RUB"],RWF = data["conversion_rates"]["RWF"] ,SAR = data["conversion_rates"]["SAR"] ,SBD = data["conversion_rates"]["SBD"],SCR = data["conversion_rates"]["SCR"],SDG = data["conversion_rates"]["SDG"],SEK = data["conversion_rates"]["SEK"]  ,SGD = data["conversion_rates"]["SGD"] ,SHP = data["conversion_rates"]["SHP"]  ,SLL = data["conversion_rates"]["SLL"]  ,SOS = data["conversion_rates"]["SOS"],SRD = data["conversion_rates"]["SRD"],SSP = data["conversion_rates"]["SSP"],STN = data["conversion_rates"]["STN"],SYP = data["conversion_rates"]["SYP"] ,SZL = data["conversion_rates"]["SZL"],THB = data["conversion_rates"]["THB"],TJS = data["conversion_rates"]["TJS"],TMT = data["conversion_rates"]["TMT"] ,TND = data["conversion_rates"]["TND"] ,TOP = data["conversion_rates"]["TOP"] ,TRY = data["conversion_rates"]["TRY"],TTD = data["conversion_rates"]["TTD"] ,TVD = data["conversion_rates"]["TVD"] ,TWD = data["conversion_rates"]["TWD"],TZS = data["conversion_rates"]["TZS"] ,UAH = data["conversion_rates"]["UAH"],UGX = data["conversion_rates"]["UGX"] ,USD = data["conversion_rates"]["USD"],UYU = data["conversion_rates"]["UYU"]    ,UZS = data["conversion_rates"]["UZS"]  ,VES = data["conversion_rates"]["VES"]    ,VND = data["conversion_rates"]["VND"]  ,VUV = data["conversion_rates"]["VUV"] ,WST = data["conversion_rates"]["WST"] ,XAF = data["conversion_rates"]["XAF"],XCD = data["conversion_rates"]["XCD"] ,XDR = data["conversion_rates"]["XDR"]  ,XOF = data["conversion_rates"]["XOF"], XPF = data["conversion_rates"]["XPF"],YER = data["conversion_rates"]["YER"],ZAR = data["conversion_rates"]["ZAR"],ZMW = data["conversion_rates"]["ZMW"])
+
+@app.route('/currency', methods = ['POST', 'GET'])
+def currency():
+    if request.method == "POST":
+        data1 = get_rate(request.form["exchangecurr"], api_key)
+        rate = data1["conversion_rates"][request.form["newcurr"]]
+        time = data1["time_last_update_utc"]
+        return render_template('currency.html', c1 = request.form["exchangecurr"], c2 = request.form["newcurr"], r1= rate, t1 = time)
+
+
+if (__name__) == "__main__":
+    app.debug =True
+    app.run(debug = True)

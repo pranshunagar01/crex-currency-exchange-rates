@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{curren}} rates</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin: 50px;
+            background-color: #52A7FE;
+            padding: 5% 0% 5% 0%;
+            text-align: center;
+        }
+        .icon{
+            background-color: #A8D3FD;
+            display: inline-block;
+            margin: 1%;
+            padding: 1%;
+            height: 30px;
+            width: 150px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 5px 5px 10px #0398E5;
+            font-family: 'Yomogi', cursive;
+            font-weight: bolder;
+        }
+        .mainDiv{
+            background-color: #A8D3FD;
+            display: inline-block;
+            padding: 2%;
+            border-radius: 30px;
+            margin-left: 24%;
+            margin-right: 25%;
+            margin-bottom: 6%;
+            font-family: 'Yomogi', cursive;
+            font-weight: bolder;
+            font-size: 1.2rem;
+            box-shadow: 5px 5px 40px #0398E5;
+        }
+        
+        .crex{
+            position: relative;
+            bottom: 90px;
+            right: 670px;
+            font-family: 'Sriracha', cursive;
+            font-weight: lighter;
+            font-size: 1.4rem;
+        }
+        .textbox1{
+            height: 40px;
+            width: 150px;
+            border-radius: 15px;
+            border: none;
+            box-shadow: 5px 5px 20px #52A7FE;
+            padding-left: 20px;
+            font-family: 'Yomogi', cursive;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .submit{
+            height: 40px;
+            width: 150px;
+            border-radius: 15px;
+            background-color: #A8D3FD;
+            border: none;
+            box-shadow: 5px 5px 20px #52A7FE;
+        }
+        .submit:hover{
+            background-color: #52A7FE;
+        }
+        .curr{
+            margin-bottom: 15%;
+        }
+        .time{
+            margin-top: 10%;
+            
+        }
+        h2{
+            font-family: 'Yomogi',cursive;
+        }
+        .allexch{
+            padding: 1% 2% 1% 2%;
+            background-color: #A8D3FD;
+            border: none;
+            box-shadow: 5px 5px 20px #52A7FE;
+            display: inline-block;
+            margin-left: 35%;
+            margin-right: 35%;
+            border-radius: 20px;
+            margin-top: 5%;
+            margin-bottom: 2%;
+            box-shadow: 5px 5px 40px #0398E5;
+        }
+        .footer{
+            margin-top: 8%;
+            font-family: 'Yomogi', cursive;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="crex"><h1>CREX</h1></div>
+        <div class = "mainDiv">
+        <h2 class="curr"><u>Currency : {{curren}}</u></h2>
+        
+        <form action="https://currency-exchange-rate-1app.herokuapp.com/currency" method = "post">
+            <p>Exchange rate of : <input type="text" value = {{curren}} name = "exchangecurr" class="textbox1"></p>
+            <p>Exhange rate for : <input type="text" name="newcurr" class="textbox1" placeholder="INR/USD/EUR..."></p>
+            <p><input type="submit" value="submit" class="submit"></p>
+        </form>
+        <h6 class="time"><u>⬇ Last updated : {{time}} ⬇</u></h6>
+        </div>
+        <div class="allexch"><h2><u>All Exchange Rates</u></h2></div>
+        
+        <div class = "icon">INR: {{INR}}</div>                                
+        <div class = "icon">AED: {{AED}}</div>                                
+        <div class = "icon">AFN: {{AFN}}</div>                               
+        <div class = "icon">ALL: {{ALL}}</div>                               
+        <div class = "icon">AMD: {{AMD}}</div>                                 
+        <div class = "icon">ANG: {{ANG}}</div>                                
+        <div class = "icon">AOA: {{AOA}}</div>                               
+        <div class = "icon">ARS: {{ARS}}</div>                               
+        <div class = "icon">AUD: {{AUD}}</div>                                
+        <div class = "icon">AWG: {{AWG}}</div>                                
+        <div class = "icon">AZN: {{AZN}}</div>                                
+        <div class = "icon">BAM: {{BAM}}</div>                                
+        <div class = "icon">BBD: {{BBD}}</div>                                
+        <div class = "icon">BDT: {{BDT}}</div>                               
+        <div class = "icon">BGN: {{BGN}}</div>                                
+        <div class = "icon">BHD: {{BHD}}</div>                                
+        <div class = "icon">BIF: {{BIF}}</div>                                
+        <div class = "icon">BMD: {{BMD}}</div>                               
+        <div class = "icon">BND: {{BND}}</div>                                
+        <div class = "icon">BOB: {{BOB}}</div>                                
+        <div class = "icon">BRL: {{BRL}}</div>                                
+        <div class = "icon">BSD: {{BSD}}</div>                               
+        <div class = "icon">BTN: {{BTN}}</div>                                 
+        <div class = "icon">BWP: {{BWP}}</div>                               
+        <div class = "icon">BYN: {{BYN}}</div>                                
+        <div class = "icon">BZD: {{BZD}}</div>                                
+        <div class = "icon">CAD: {{CAD}}</div>                                
+        <div class = "icon">CDF: {{CDF}}</div>                                
+        <div class = "icon">CHF: {{CHF}}</div>                               
+        <div class = "icon">CLP: {{CLP}}</div>                              
+        <div class = "icon">CNY: {{CNY}}</div>                               
+        <div class = "icon">COP: {{COP}}</div>                                
+        <div class = "icon">CRC: {{CRC}}</div>                              
+        <div class = "icon">CUC: {{CUC}}</div>                               
+        <div class = "icon">CUP: {{CUP}}</div>                               
+        <div class = "icon">CVE: {{CVE}}</div>                               
+        <div class = "icon">CZK: {{CZK}}</div>                               
+        <div class = "icon">DJF: {{DJF}}</div>                               
+        <div class = "icon">DKK: {{DKK}}</div>                                
+        <div class = "icon">DOP: {{DOP}}</div>                               
+        <div class = "icon">DZD: {{DZD}}</div>                               
+        <div class = "icon">EGP: {{EGP}}</div>                               
+        <div class = "icon">ERN: {{ERN}}</div>                               
+        <div class = "icon">ETB: {{ETB}}</div>                               
+        <div class = "icon">EUR: {{EUR}}</div>                                
+        <div class = "icon">FJD: {{FJD}}</div>                                
+        <div class = "icon">FKP: {{FKP}}</div>                                 
+        <div class = "icon">FOK: {{FOK}}</div>                                
+        <div class = "icon">GBP: {{GBP}}</div>                                 
+        <div class = "icon">GEL: {{GEL}}</div>                                
+        <div class = "icon">GGP: {{GGP}}</div>                                 
+        <div class = "icon">GHS: {{GHS}}</div>                                
+        <div class = "icon">GIP: {{GIP}}</div>                                 
+        <div class = "icon">GMD: {{GMD}}</div>                               
+        <div class = "icon">GNF: {{GNF}}</div>                                 
+        <div class = "icon">GTQ: {{GTQ}}</div>                               
+        <div class = "icon">GYD: {{GYD}}</div>                              
+        <div class = "icon">HKD: {{HKD}}</div>                               
+        <div class = "icon">HNL: {{HNL}}</div>                               
+        <div class = "icon">HRK: {{HRK}}</div>                                
+        <div class = "icon">HTG: {{HTG}}</div>                               
+        <div class = "icon">HUF: {{HUF}}</div>                               
+        <div class = "icon">IDR: {{IDR}}</div>                                 
+        <div class = "icon">ILS: {{ILS}}</div>                               
+        <div class = "icon">IMP: {{IMP}}</div>                                 
+        <div class = "icon">IQD: {{IQD}}</div>                                
+        <div class = "icon">IRR: {{IRR}}</div>                                 
+        <div class = "icon">ISK: {{ISK}}</div>                               
+        <div class = "icon">JMD: {{JMD}}</div>                               
+        <div class = "icon">JOD: {{JOD}}</div>                                 
+        <div class = "icon">JPY: {{JPY}}</div>                               
+        <div class = "icon">KES: {{KES}}</div>                               
+        <div class = "icon">KGS: {{KGS}}</div>                               
+        <div class = "icon">KHR: {{KHR}}</div>                               
+        <div class = "icon">KID: {{KID}}</div>                                
+        <div class = "icon">KMF: {{KMF}}</div>                                
+        <div class = "icon">KRW: {{KRW}}</div>                                
+        <div class = "icon">KWD: {{KWD}}</div>                                 
+        <div class = "icon">KYD: {{KYD}}</div>                                
+        <div class = "icon">KZT: {{KZT}}</div>                               
+        <div class = "icon">LAK: {{LAK}}</div>                                 
+        <div class = "icon">LBP: {{LBP}}</div>                                
+        <div class = "icon">LKR: {{LKR}}</div>                               
+        <div class = "icon">LRD: {{LRD}}</div>                               
+        <div class = "icon">LSL: {{LSL}}</div>                               
+        <div class = "icon">LYD: {{LYD}}</div>                               
+        <div class = "icon">MAD: {{MAD}}</div>                               
+        <div class = "icon">MDL: {{MDL}}</div>                               
+        <div class = "icon">MGA: {{MGA}}</div>                                
+        <div class = "icon">MKD: {{MKD}}</div>                               
+        <div class = "icon">MMK: {{MMK}}</div>                                
+        <div class = "icon">MNT: {{MNT}}</div>                                
+        <div class = "icon">MOP: {{MOP}}</div>                               
+        <div class = "icon">MRU: {{MRU}}</div>                               
+        <div class = "icon">MUR: {{MUR}}</div>                               
+        <div class = "icon">MVR: {{MVR}}</div>                               
+        <div class = "icon">MWK: {{MWK}}</div>                                
+        <div class = "icon">MXN: {{MXN}}</div>                               
+        <div class = "icon">MYR: {{MYR}}</div>                                
+        <div class = "icon">MZN: {{MZN}}</div>                               
+        <div class = "icon">NAD: {{NAD}}</div>                               
+        <div class = "icon">NGN: {{NGN}}</div>                               
+        <div class = "icon">NIO: {{NIO}}</div>                               
+        <div class = "icon">NOK: {{NOK}}</div>                               
+        <div class = "icon">NPR: {{NPR}}</div>                                 
+        <div class = "icon">NZD: {{NZD}}</div>                                
+        <div class = "icon">OMR: {{OMR}}</div>                                 
+        <div class = "icon">PAB: {{PAB}}</div>                               
+        <div class = "icon">PEN: {{PEN}}</div>                                
+        <div class = "icon">PGK: {{PGK}}</div>                                
+        <div class = "icon">PHP: {{PHP}}</div>                               
+        <div class = "icon">PKR: {{PKR}}</div>                               
+        <div class = "icon">PLN: {{PLN}}</div>                                
+        <div class = "icon">PYG: {{PYG}}</div>                                
+        <div class = "icon">QAR: {{QAR}}</div>                                
+        <div class = "icon">RON: {{RON}}</div>                                
+        <div class = "icon">RSD: {{RSD}}</div>                               
+        <div class = "icon">RUB: {{RUB}}</div>                               
+        <div class = "icon">RWF: {{RWF}}</div>                                
+        <div class = "icon">SAR: {{SAR}}</div>                                
+        <div class = "icon">SBD: {{SBD}}</div>                               
+        <div class = "icon">SCR: {{SCR}}</div>                               
+        <div class = "icon">SDG: {{SDG}}</div>                               
+        <div class = "icon">SEK: {{SEK}}</div>                                 
+        <div class = "icon">SGD: {{SGD}}</div>                                
+        <div class = "icon">SHP: {{SHP}}</div>                                 
+        <div class = "icon">SLL: {{SLL}}</div>                                 
+        <div class = "icon">SOS: {{SOS}}</div>                               
+        <div class = "icon">SRD: {{SRD}}</div>                               
+        <div class = "icon">SSP: {{SSP}}</div>                               
+        <div class = "icon">STN: {{STN}}</div>                               
+        <div class = "icon">SYP: {{SYP}}</div>                                
+        <div class = "icon">SZL: {{SZL}}</div>                               
+        <div class = "icon">THB: {{THB}}</div>                               
+        <div class = "icon">TJS: {{TJS}}</div>                               
+        <div class = "icon">TMT: {{TMT}}</div>                                
+        <div class = "icon">TND: {{TND}}</div>                                
+        <div class = "icon">TOP: {{TOP}}</div>                                
+        <div class = "icon">TRY: {{TRY}}</div>                               
+        <div class = "icon">TTD: {{TTD}}</div>                                
+        <div class = "icon">TVD: {{TVD}}</div>                                
+        <div class = "icon">TWD: {{TWD}}</div>                               
+        <div class = "icon">TZS: {{TZS}}</div>                                
+        <div class = "icon">UAH: {{UAH}}</div>                               
+        <div class = "icon">UGX: {{UGX}}</div>                                
+        <div class = "icon">USD: {{USD}}</div>                               
+        <div class = "icon">UYU: {{UYU}}</div>                                   
+        <div class = "icon">UZS: {{UZS}}</div>                                 
+        <div class = "icon">VES: {{VES}}</div>                                   
+        <div class = "icon">VND: {{VND}}</div>                                 
+        <div class = "icon">VUV: {{VUV}}</div>                                       
+        <div class = "icon">WST: {{WST}}</div>                                
+        <div class = "icon">XAF: {{XAF}}</div>                              
+        <div class = "icon">XCD: {{XCD}}</div>                                
+        <div class = "icon">XDR: {{XDR}}</div>                                 
+        <div class = "icon">XOF: {{XOF}}</div>                              
+        <div class = "icon">XPF: {{XPF}}</div>                               
+        <div class = "icon">YER: {{YER}}</div>                               
+        <div class = "icon">ZAR: {{ZAR}}</div>                               
+        <div class = "icon">ZMW: {{ZMW}}</div> 
+    </div>
+    <footer>
+        <h3 class="footer"><u>Made with 💖 by Pranshu Nagar</u></h3>
+    </footer>
+</body>
+</html>
